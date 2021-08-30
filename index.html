@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #holder {
+            max-width: 900px;
+            margin: 10px auto;
+            box-shadow: 0px 0px 10px #555;
+        }
+        
+        .image-wrap {
+            margin: 0px auto;
+        }
+        
+        .blur {
+            filter: blur(7px);
+            -webkit-filter: blur(7px);
+        }
+        
+        .bg-text {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+            letter-spacing: 5px;
+            font-size: 5vw;
+            font-weight: 100;
+            font-family: sans-serif;
+            color: #403c3c;
+            font-weight: bold;
+            transition: all 1s;
+        }
+        
+        .d-none {
+            display: none;
+        }
+        
+        .image {
+            width: 100%;
+            /* padding-top: calc(100% / (1903/835)); */
+            padding-top: calc(40%);
+            background-image: url("https://thecoder505.github.io/imagesliderv2/image.jpg");
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 1s;
+        }
+        
+        #contents h2 {
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+        
+        #scrollDiv {
+            padding: 0px 10px;
+            margin: 0px auto;
+            margin-top: 15px;
+        }
+        
+        #mainScrollTxts {
+            overflow-y: scroll;
+            margin-top: 10px;
+            scroll-behavior: smooth;
+        }
+        
+        #mainScrollTxts::-webkit-scrollbar {
+            display: none;
+        }
+        
+        #mainScrollTxts {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        #divZero,
+        #divOne,
+        #divTwo,
+        #divFour,
+        #divThree {
+            margin: 0px auto;
+            background: #eeeded;
+            padding: 20px;
+            color: #312f2f;
+            font-size: 18px;
+            transition: all 1s;
+        }
+        
+        #divZero {
+            margin-top: 10px;
+        }
+        
+        .bgblack {
+            background-color: black;
+        }
+        
+        .animate {
+            /* animation: fade 1s linear forwards; */
+        }
+        
+        #contentSlide {
+            max-width: 450px;
+            margin: 10px auto;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .flex-container {
+            display: flex;
+        }
+        
+        .flex-child {
+            flex: 1;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            padding-top: 4px;
+            max-width: 50px;
+            margin: 0px auto;
+            margin-right: auto;
+        }
+        
+        .flex-child:first-child {
+            margin-right: 20px;
+        }
+        
+        .scrolBlock {
+            position: relative;
+            /* z-index: 200; */
+        }
+        
+        @-webkit-keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @media screen and (max-width: 900px) {
+            .bg-text {
+                top: 17%;
+            }
+        }
+        
+        @media screen and (max-width: 750px) {
+            .bg-text {
+                top: 13%;
+            }
+        }
+    </style>
+    <title>Scroll Task</title>
+</head>
+
+<body>
+
+
+    <section id="holder">
+        <div class="image-wrap">
+            <div class="image">
+
+            </div>
+            <div class="bg-text d-none">
+                <span>STUNNING VIEWS</span>
+            </div>
+
+        </div>
+
+        <div id="contentSlide">
+            <div class="flex-container">
+                <div class="flex-child child0 bgblack" onclick="scrolldiv0()"></div>
+                <div class="flex-child child1" onclick="scrolldiv1()"></div>
+                <div class="flex-child child2" onclick="scrolldiv2()"></div>
+                <div class="flex-child child3" onclick="scrolldiv3()"></div>
+                <div class="flex-child child4" onclick="scrolldiv4()"></div>
+            </div>
+        </div>
+        <div class="scrolBlock" id="scrolBlock"></div>
+
+        <div id="scrollDiv">
+            <div id="mainScrollTxts">
+                <div id="contents">
+                    <div id="divZero" class="commonDiv">
+                        <h2>
+                            SKY GARAGE-PENTHOUSE
+                        </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ipsa, cumque quod placeat inventore illum vero quo molestiae dolorum cum recusandae voluptas, autem nesciunt totam enim ducimus modi deleniti aliquam!
+                        </p>
+                    </div>
+                    <div id="divOne" class="commonDiv">
+                        <h2>
+                            16’ – 24’ FEET DOUBLE-HEIGHT CEILINGS
+                        </h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum ducimus impedit ullam culpa recusandae mollitia odit reprehenderit facere dignissimos inventore consequuntur earum quaerat et itaque, in ipsam repudiandae doloribus molestias.
+                        </p>
+                    </div>
+                    <div id="divTwo" class="commonDiv">
+                        THIS IS THE DIV TWO IN THIS FIELD HERE!...
+                    </div>
+                    <div id="divThree" class="commonDiv">
+                        THIS IS THE DIV Three IN THIS FIELD HERE!...
+                    </div>
+                    <div id="divFour" class="commonDiv">
+                        THIS IS THE DIV Four IN THIS FIELD HERE!...
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </section>
+
+
+    <script>
+        const image = document.querySelector(".image");
+
+        var paddingScrldiv = window.getComputedStyle(document.getElementById("divOne")).paddingBottom;
+        var font = window.getComputedStyle(document.getElementById("divOne")).font;
+        var font0 = window.getComputedStyle(document.getElementById("divZero")).height;
+        var font1 = window.getComputedStyle(document.getElementById("divOne")).height;
+        var font2 = window.getComputedStyle(document.getElementById("divTwo")).height;
+        var font3 = window.getComputedStyle(document.getElementById("divThree")).height;
+        var font4 = window.getComputedStyle(document.getElementById("divFour")).height;
+        paddingScrldiv = Number(paddingScrldiv.slice(0, -2));
+        font = Number(font.slice(0, -2));
+
+
+        var holderMTop = window.getComputedStyle(document.getElementById("holder")).marginTop;
+        holderMTop = Number(holderMTop.slice(0, -2));
+
+        var scrollDivTop = document.getElementById("scrollDiv").offsetTop; // = x;
+        var holderDivTop = document.getElementById("holder").offsetTop; // = x;
+        var holderHeight = document.getElementById("holder").offsetHeight; // = a;
+        var scrollDivHeight = document.getElementById("scrollDiv").offsetHeight;
+
+        var limitToShow = ((window.innerHeight) - (holderMTop + font));
+        var divOneHeight = document.getElementById("divOne").offsetHeight; // = a;
+
+
+        function scrollevent() {
+
+            let content0 = document.getElementById("divZero");
+            let content1 = document.getElementById("divOne");
+            let content2 = document.getElementById("divTwo");
+            let content3 = document.getElementById("divThree");
+            let content4 = document.getElementById("divFour");
+            let contentPosition0 = content0.getBoundingClientRect().top;
+            let contentPosition1 = content1.getBoundingClientRect().top;
+            let contentPosition2 = content2.getBoundingClientRect().top;
+            let contentPosition3 = content3.getBoundingClientRect().top;
+            let contentPosition4 = content4.getBoundingClientRect().top;
+
+            let divBottomLimit0 = contentPosition0 + divOneHeight - (paddingScrldiv + font / 2);
+            let divBottomLimit1 = contentPosition1 + divOneHeight - (paddingScrldiv + font / 2);
+            let divBottomLimit2 = contentPosition2 + divOneHeight - (paddingScrldiv + font / 2);
+            let divBottomLimit3 = contentPosition3 + divOneHeight - (paddingScrldiv + font / 2);
+            let divBottomLimit4 = contentPosition4 + divOneHeight - (paddingScrldiv + font / 2);
+
+
+            if ((contentPosition0 <= limitToShow) && (divBottomLimit0 >= scrollDivTop)) {
+                image.style.backgroundSize = "100% 100%";
+                image.style.backgroundPosition = "0% 0%";
+                content0.classList.add("animate");
+                content1.classList.remove("animate");
+                content2.classList.remove("animate");
+                content3.classList.remove("animate");
+                content4.classList.remove("animate");
+                image.classList.remove("blur");
+                document.querySelector(".child0").classList.add("bgblack");
+                document.querySelector(".child1").classList.remove("bgblack");
+                document.querySelector(".child2").classList.remove("bgblack");
+                document.querySelector(".child3").classList.remove("bgblack");
+                document.querySelector(".child4").classList.remove("bgblack");
+                document.querySelector(".bg-text").classList.add("d-none");
+            }
+            if ((contentPosition1 <= limitToShow) && (divBottomLimit1 >= scrollDivTop)) {
+                image.style.backgroundSize = "205% 176%";
+                image.style.backgroundPosition = "95% 27%";
+                content0.classList.remove("animate");
+                content1.classList.add("animate");
+                content2.classList.remove("animate");
+                content3.classList.remove("animate");
+                content4.classList.remove("animate");
+                image.classList.remove("blur");
+                document.querySelector(".child0").classList.remove("bgblack");
+                document.querySelector(".child1").classList.add("bgblack");
+                document.querySelector(".child2").classList.remove("bgblack");
+                document.querySelector(".child3").classList.remove("bgblack");
+                document.querySelector(".child4").classList.remove("bgblack");
+                document.querySelector(".bg-text").classList.add("d-none");
+            } else if ((contentPosition2 <= limitToShow) && (divBottomLimit2 >= scrollDivTop)) {
+                image.style.backgroundSize = "218% 162%";
+                image.style.backgroundPosition = "0% 30%";
+                content0.classList.remove("animate");
+                content1.classList.remove("animate");
+                content2.classList.add("animate");
+                content3.classList.remove("animate");
+                content4.classList.remove("animate");
+                image.classList.remove("blur");
+                document.querySelector(".child0").classList.remove("bgblack");
+                document.querySelector(".child1").classList.remove("bgblack");
+                document.querySelector(".child2").classList.add("bgblack");
+                document.querySelector(".child3").classList.remove("bgblack");
+                document.querySelector(".child4").classList.remove("bgblack");
+                document.querySelector(".bg-text").classList.add("d-none");
+            } else if ((contentPosition3 <= limitToShow) && (divBottomLimit3 >= scrollDivTop)) {
+                image.style.backgroundSize = "150% 150%";
+                image.style.backgroundPosition = "0% 30%";
+                content0.classList.remove("animate");
+                content1.classList.remove("animate");
+                content2.classList.remove("animate");
+                content3.classList.add("animate");
+                content4.classList.remove("animate");
+                image.classList.add("blur");
+                document.querySelector(".child0").classList.remove("bgblack");
+                document.querySelector(".child1").classList.remove("bgblack");
+                document.querySelector(".child2").classList.remove("bgblack");
+                document.querySelector(".child3").classList.add("bgblack");
+                document.querySelector(".child4").classList.remove("bgblack");
+                document.querySelector(".bg-text").classList.remove("d-none");
+            } else if ((contentPosition4 <= limitToShow) && (divBottomLimit4 >= scrollDivTop)) {
+                image.style.backgroundSize = "170% 130%";
+                image.style.backgroundPosition = "0% 32%";
+                content0.classList.remove("animate");
+                content1.classList.add("animate");
+                content2.classList.remove("animate");
+                content3.classList.remove("animate");
+                content4.classList.add("animate");
+                image.classList.remove("blur");
+                document.querySelector(".child0").classList.remove("bgblack");
+                document.querySelector(".child1").classList.remove("bgblack");
+                document.querySelector(".child2").classList.remove("bgblack");
+                document.querySelector(".child3").classList.remove("bgblack");
+                document.querySelector(".child4").classList.add("bgblack");
+                document.querySelector(".bg-text").classList.add("d-none");
+            }
+
+        }
+
+
+        document.getElementById("mainScrollTxts").addEventListener("scroll", function() {
+            scrollevent();
+        });
+
+
+        var i = 0;
+        document.getElementById("scrolBlock").addEventListener("wheel", function() {
+            // scrollevent();
+            // alert("holla");
+            let scrollToDiv = "scrolldiv" + i + "()";
+            console.log(scrollToDiv);
+            scrollToDiv;
+            i = i + 1;
+            // scrolldiv0();
+        });
+
+
+        var textSectionHeight = window.getComputedStyle(document.getElementById("mainScrollTxts")).maxHeight;
+        textSectionHeight = Number(textSectionHeight.slice(0, -2));
+
+        var restHeight = ((window.innerHeight) - scrollDivTop);
+        var maxScreen2 = window.getComputedStyle(document.getElementById("mainScrollTxts")).marginTop;
+        maxScreen2 = Number(maxScreen2.slice(0, -2));
+        var finalMaxHeight = (restHeight - (maxScreen2 * 2));
+
+        document.getElementById("mainScrollTxts").style.maxHeight = divOneHeight + "px";
+        // document.getElementById("scrolBlock").style.height = divOneHeight + 25 + "px";
+        // document.getElementById("scrolBlock").style.marginBottom = -divOneHeight - 35 + "px";
+
+        // document.getElementById("divFour").style.marginBottom = finalMaxHeight + "px";
+        // document.getElementById("divOne").style.marginTop = finalMaxHeight + "px";
+        // document.getElementById("divTwo").style.marginTop = finalMaxHeight + "px";
+        // document.getElementById("divThree").style.marginTop = finalMaxHeight + "px";
+        // document.getElementById("divFour").style.marginTop = finalMaxHeight + "px";
+        document.getElementById("divFour").style.marginBottom = divOneHeight + "px";
+        document.getElementById("divOne").style.marginTop = divOneHeight + "px";
+        document.getElementById("divTwo").style.marginTop = divOneHeight + "px";
+        document.getElementById("divThree").style.marginTop = divOneHeight + "px";
+        document.getElementById("divFour").style.marginTop = divOneHeight + "px";
+
+
+        function scrolldiv0() {
+            var elem = document.getElementById("divZero");
+            elem.scrollIntoView();
+        }
+
+        function scrolldiv1() {
+            var elem = document.getElementById("divOne");
+            elem.scrollIntoView();
+        }
+
+        function scrolldiv2() {
+            var elem = document.getElementById("divTwo");
+            elem.scrollIntoView();
+        }
+
+        function scrolldiv3() {
+            var elem = document.getElementById("divThree");
+            elem.scrollIntoView();
+        }
+
+        function scrolldiv4() {
+            var elem = document.getElementById("divFour");
+            elem.scrollIntoView();
+        }
+    </script>
+</body>
+
+</html>
